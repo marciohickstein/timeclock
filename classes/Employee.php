@@ -164,6 +164,11 @@ class Employee
         return ($this->sql->query("INSERT INTO employee (id, name, occupation) VALUES (:ID, :NOME, :OCCUPATION)", $params));
     }
 
+    public function updateAll(){
+        $params = array(":ID" => $this->getId(), ":NAME" => $this->getName(), ":OCCUPATION" => $this->getOccupation());
+        return ($this->sql->query("UPDATE employee SET name=:NAME, occupation=:OCCUPATION WHERE id=:ID", $params));
+    }
+
     /**
      * Get the value of errorLoadData
      */ 
